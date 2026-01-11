@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabby's Adventures in Nashville</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sunshine: #FFD166;
+            --coral: #FF6B6B;
+            --sky: #4ECDC4;
+            --peach: #FFE5B4;
+            --sunset: #FF8C42;
+            --mint: #A8E6CF;
+            --lavender: #E8D5F2;
+            --cream: #FFF9F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--peach) 50%, var(--lavender) 100%);
+            background-attachment: fixed;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .header-content {
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Fredoka', cursive;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            background: linear-gradient(135deg, var(--coral), var(--sunset), var(--sunshine));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-style: italic;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            background: white;
+            padding: 15px 0;
+            border-top: 2px solid var(--sunshine);
+            border-bottom: 2px solid var(--sunshine);
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        nav::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        nav::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+
+        nav::-webkit-scrollbar-thumb {
+            background: var(--coral);
+            border-radius: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 20px;
+        }
+
+        .nav-links a {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #2c3e50;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(135deg, var(--coral), var(--sunset));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        main {
+            padding: 40px 0;
+        }
+
+        section {
+            margin-bottom: 60px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'Fredoka', cursive;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--coral);
+            margin-bottom: 10px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sunshine), var(--coral));
+            border-radius: 2px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            animation: cardFloat 0.6s ease-out;
+        }
+
+        @keyframes cardFloat {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.15);
+            border-color: var(--coral);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card-title {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.3rem;
+            color: var(--coral);
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .restaurant-card {
+            background: linear-gradient(135deg, white 0%, rgba(255, 214, 102, 0.1) 100%);
+        }
+
+        .college-card {
+            background: linear-gradient(135deg, white 0%, rgba(78, 205, 196, 0.1) 100%);
+        }
+
+        .park-card {
+            background: linear-gradient(135deg, white 0%, rgba(168, 230, 207, 0.1) 100%);
+        }
+
+        .shopping-card {
+            background: linear-gradient(135deg, white 0%, rgba(255, 107, 107, 0.1) 100%);
+        }
+
+        .city-card {
+            background: linear-gradient(135deg, white 0%, rgba(232, 213, 242, 0.1) 100%);
+        }
+
+        .map-container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-top: 20px;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .transit-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .transit-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--sky);
+            transition: all 0.3s ease;
+        }
+
+        .transit-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .transit-title {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.2rem;
+            color: var(--sky);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 3px solid var(--sunshine);
+        }
+
+        .footer-content {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.1rem;
+            color: var(--coral);
+        }
+
+        .footer-heart {
+            color: var(--coral);
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+            }
+
+            .map-frame {
+                height: 400px;
+            }
+        }
+
+        .emoji-decoration {
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .neighborhood-card {
+            background: linear-gradient(135deg, white 0%, rgba(255, 140, 66, 0.1) 100%);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🎸 Gabby's Adventures in Nashville 🎵</h1>
+            <p class="subtitle">Your ultimate guide to Music City!</p>
+        </div>
+        <nav>
+            <div class="nav-links">
+                <a href="#neighborhoods">🏘️ Neighborhoods</a>
+                <a href="#food">🍴 Food Spots</a>
+                <a href="#colleges">🎓 Colleges</a>
+                <a href="#parks">🌳 Parks</a>
+                <a href="#shopping">🛍️ Shopping</a>
+                <a href="#nearby">🗺️ Nearby Cities</a>
+                <a href="#transit">🚌 Transportation</a>
+                <a href="#maps">📍 Maps</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Nashville Neighborhoods -->
+        <section id="neighborhoods">
+            <div class="section-header">
+                <h2 class="section-title">Nashville Neighborhoods <span class="emoji-decoration">🏘️</span></h2>
+            </div>
+            <div class="card-grid">
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🎸</span>
+                    <h3 class="card-title">Downtown</h3>
+                    <p class="card-description">The heart of Nashville with honky-tonks on Broadway, the iconic Ryman Auditorium, and bustling nightlife. Home to tourists and locals alike.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">✨</span>
+                    <h3 class="card-title">The Gulch</h3>
+                    <p class="card-description">Trendy neighborhood with upscale dining, rooftop bars, boutique shops, and the famous "What Lifts You" wings mural.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🎨</span>
+                    <h3 class="card-title">12 South</h3>
+                    <p class="card-description">Hip, walkable area with vintage shops, cafes, and the famous "I Believe in Nashville" mural. Great for brunch and boutique shopping.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🎭</span>
+                    <h3 class="card-title">East Nashville</h3>
+                    <p class="card-description">Artsy, eclectic neighborhood known for its vibrant music scene, quirky shops, street art, and diverse food options.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🌳</span>
+                    <h3 class="card-title">Green Hills</h3>
+                    <p class="card-description">Upscale residential area with high-end shopping at The Mall at Green Hills, fine dining, and beautiful tree-lined streets.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🎓</span>
+                    <h3 class="card-title">Hillsboro Village</h3>
+                    <p class="card-description">College town vibe near Vanderbilt University with bookstores, coffee shops, vintage stores, and casual eateries.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🏛️</span>
+                    <h3 class="card-title">Germantown</h3>
+                    <p class="card-description">Historic neighborhood with brick streets, restored homes, trendy restaurants, and the Nashville Farmers' Market nearby.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🎵</span>
+                    <h3 class="card-title">Music Row</h3>
+                    <p class="card-description">The business center of country music with recording studios, record labels, and the Country Music Hall of Fame.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🌆</span>
+                    <h3 class="card-title">Midtown</h3>
+                    <p class="card-description">Central location with Vanderbilt campus, Music Row, hospitals, restaurants, and a mix of students and young professionals.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🏡</span>
+                    <h3 class="card-title">Sylvan Park</h3>
+                    <p class="card-description">Family-friendly neighborhood with charming bungalows, local shops on 51st Avenue, and McCabe Park and Golf Course.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🍺</span>
+                    <h3 class="card-title">The Nations</h3>
+                    <p class="card-description">Up-and-coming area west of downtown with breweries, restaurants, and new residential developments attracting young families.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🎪</span>
+                    <h3 class="card-title">Wedgewood-Houston</h3>
+                    <p class="card-description">Arts district with galleries, studios, breweries, and warehouses being converted into creative spaces and restaurants.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🌸</span>
+                    <h3 class="card-title">Belle Meade</h3>
+                    <p class="card-description">Affluent area known for historic estates, Belle Meade Plantation, beautiful landscaping, and proximity to Percy Warner Park.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🏞️</span>
+                    <h3 class="card-title">Donelson</h3>
+                    <p class="card-description">Neighborhood near the airport with suburban feel, Percy Priest Lake access, and diverse dining along Donelson Pike.</p>
+                </div>
+                <div class="card neighborhood-card">
+                    <span class="card-icon">🛣️</span>
+                    <h3 class="card-title">Antioch</h3>
+                    <p class="card-description">Diverse, affordable area in Southeast Nashville with international markets, restaurants, and growing community centers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Local Food Spots -->
+        <section id="food">
+            <div class="section-header">
+                <h2 class="section-title">Local Food Spots <span class="emoji-decoration">🍴</span></h2>
+            </div>
+            <div class="card-grid">
+                <div class="card restaurant-card">
+                    <span class="card-icon">🔥</span>
+                    <h3 class="card-title">Hattie B's Hot Chicken</h3>
+                    <p class="card-description">Nashville's famous hot chicken with spice levels from Southern to Shut the Cluck Up. A must-try local favorite!</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍖</span>
+                    <h3 class="card-title">Martin's Bar-B-Que Joint</h3>
+                    <p class="card-description">Authentic West Tennessee whole hog BBQ with mouth-watering ribs and sides.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🥞</span>
+                    <h3 class="card-title">Pancake Pantry</h3>
+                    <p class="card-description">Hillsboro Village institution serving creative pancakes since 1961. Expect a line but it's worth it!</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍔</span>
+                    <h3 class="card-title">Burger Up</h3>
+                    <p class="card-description">Farm-to-table burgers with creative toppings and local ingredients. Try the East Nasty!</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🌮</span>
+                    <h3 class="card-title">Mas Tacos Por Favor</h3>
+                    <p class="card-description">East Nashville taco spot with unique flavors and vegetarian options. The fried avocado taco is legendary.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍕</span>
+                    <h3 class="card-title">The Pharmacy Burger</h3>
+                    <p class="card-description">Upscale burgers and craft beer in an old pharmacy building. German pretzels are a highlight.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">☕</span>
+                    <h3 class="card-title">Barista Parlor</h3>
+                    <p class="card-description">Artisanal coffee in a vintage garage with meticulous brewing methods and hip atmosphere.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🥖</span>
+                    <h3 class="card-title">Proper Bagel</h3>
+                    <p class="card-description">NYC-style bagels made fresh daily. Perfect for breakfast or lunch sandwiches.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍜</span>
+                    <h3 class="card-title">Two Ten Jack</h3>
+                    <p class="card-description">Japanese izakaya with amazing ramen, yakitori, and extensive sake selection.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🥗</span>
+                    <h3 class="card-title">The Southern Steak & Oyster</h3>
+                    <p class="card-description">Upscale Southern cuisine in The Gulch. Great for brunch and fresh oysters.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍺</span>
+                    <h3 class="card-title">Acme Feed & Seed</h3>
+                    <p class="card-description">Multi-level venue on Broadway with Southern comfort food, live music, and rooftop bar.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🥘</span>
+                    <h3 class="card-title">The Catbird Seat</h3>
+                    <p class="card-description">Intimate tasting menu experience at the chef's counter. Fine dining at its best.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍩</span>
+                    <h3 class="card-title">Five Daughters Bakery</h3>
+                    <p class="card-description">Known for their 100-layer donuts and Instagram-worthy treats.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍝</span>
+                    <h3 class="card-title">Adele's</h3>
+                    <p class="card-description">Upscale dining in the Gulch with creative American cuisine and seasonal menus.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🌯</span>
+                    <h3 class="card-title">Baja Burrito</h3>
+                    <p class="card-description">Fresh Cali-Mex burritos with customizable options. Quick, healthy, and delicious.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍗</span>
+                    <h3 class="card-title">Prince's Hot Chicken</h3>
+                    <p class="card-description">The original Nashville hot chicken since 1945. A true institution.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🥩</span>
+                    <h3 class="card-title">Jeff Ruby's Steakhouse</h3>
+                    <p class="card-description">Luxury steakhouse experience downtown with theatrical ambiance and premium cuts.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍱</span>
+                    <h3 class="card-title">PM</h3>
+                    <p class="card-description">Korean fusion in East Nashville with creative dishes and cool atmosphere.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🧇</span>
+                    <h3 class="card-title">Biscuit Love</h3>
+                    <p class="card-description">Southern brunch spot famous for bonuts (biscuit donuts) and the East Nasty biscuit.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍛</span>
+                    <h3 class="card-title">Chauhan Ale & Masala House</h3>
+                    <p class="card-description">Indian cuisine with a Southern twist by celebrity chef Maneet Chauhan.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🦞</span>
+                    <h3 class="card-title">Husk Nashville</h3>
+                    <p class="card-description">Southern ingredients elevated to fine dining. Menu changes daily based on local harvests.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍰</span>
+                    <h3 class="card-title">Milk & Honey</h3>
+                    <p class="card-description">The Gulch gelato and dessert bar with creative flavors and Instagram-worthy presentations.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🌶️</span>
+                    <h3 class="card-title">Saffire</h3>
+                    <p class="card-description">Upscale New American with beautiful plating and creative seasonal dishes.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🥪</span>
+                    <h3 class="card-title">Mitchell Delicatessen</h3>
+                    <p class="card-description">East Nashville deli with house-made everything and incredible sandwiches.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍤</span>
+                    <h3 class="card-title">Henrietta Red</h3>
+                    <p class="card-description">Germantown seafood spot with raw bar and wood-fired oysters.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🎂</span>
+                    <h3 class="card-title">Dozen Bakery</h3>
+                    <p class="card-description">Artisan bakery with amazing cupcakes, cakes, and desserts. The peanut butter cupcake is divine.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🥙</span>
+                    <h3 class="card-title">Epice</h3>
+                    <p class="card-description">Lebanese restaurant in Midtown with fresh Mediterranean flavors and vegetarian options.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍳</span>
+                    <h3 class="card-title">Sky Blue Cafe</h3>
+                    <p class="card-description">Cozy East Nashville brunch spot with creative omelets and friendly vibes.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🌮</span>
+                    <h3 class="card-title">Bartaco</h3>
+                    <p class="card-description">Beach-inspired tacos and cocktails in 12 South. Great patio atmosphere.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍕</span>
+                    <h3 class="card-title">City House</h3>
+                    <p class="card-description">Germantown spot blending Italian and Southern cuisines. The belly ham pizza is famous.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🥐</span>
+                    <h3 class="card-title">Frothy Monkey</h3>
+                    <p class="card-description">All-day cafe with brunch, lunch, dinner, and excellent coffee. Multiple locations.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍜</span>
+                    <h3 class="card-title">Pho</h3>
+                    <p class="card-description">Best Vietnamese pho in Nashville. Simple, authentic, and delicious.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍔</span>
+                    <h3 class="card-title">The Cafe at Thistle Farms</h3>
+                    <p class="card-description">Social enterprise cafe supporting women survivors with fresh, healthy options.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🌽</span>
+                    <h3 class="card-title">Arnold's Country Kitchen</h3>
+                    <p class="card-description">Meat-and-three cafeteria serving authentic Southern home cooking since 1982.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍷</span>
+                    <h3 class="card-title">Lockeland Table</h3>
+                    <p class="card-description">East Nashville neighborhood restaurant with seasonal American fare and great wine list.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🥟</span>
+                    <h3 class="card-title">Redheaded Stranger</h3>
+                    <p class="card-description">East Nashville bar with elevated pub food and creative cocktails.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍣</span>
+                    <h3 class="card-title">Virago</h3>
+                    <p class="card-description">Upscale sushi and robata in The Gulch with beautiful presentation.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🧁</span>
+                    <h3 class="card-title">Gigi's Cupcakes</h3>
+                    <p class="card-description">Nashville-born cupcake chain with creative flavors. The Scarlett's Bakery is incredible.</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🥓</span>
+                    <h3 class="card-title">Monell's</h3>
+                    <p class="card-description">Family-style Southern dining where you sit with strangers and pass the plates. Unique Nashville experience!</p>
+                </div>
+                <div class="card restaurant-card">
+                    <span class="card-icon">🍦</span>
+                    <h3 class="card-title">Jeni's Splendid Ice Creams</h3>
+                    <p class="card-description">Artisan ice cream with unique flavors like Brambleberry Crisp and Salty Caramel. Multiple locations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Colleges in Middle TN -->
+        <section id="colleges">
+            <div class="section-header">
+                <h2 class="section-title">Colleges in Middle TN <span class="emoji-decoration">🎓</span></h2>
+            </div>
+            <div class="card-grid">
+                <div class="card college-card">
+                    <span class="card-icon">🏛️</span>
+                    <h3 class="card-title">Vanderbilt University</h3>
+                    <p class="card-description">Private research university ranked among the nation's top 20. Beautiful campus in Midtown Nashville with strong programs across all disciplines.</p>
+                </div>
+                <div class="card college-card">
+                    <span class="card-icon">🎵</span>
+                    <h3 class="card-title">Belmont University</h3>
+                    <p class="card-description">Private Christian university known for its music business program. Located near Music Row with strong arts and business programs.</p>
+                </div>
+                <div class="card college-card">
+                    <span class="card-icon">⚙️</span>
+                    <h3 class="card-title">Tennessee State University</h3>
+                    <p class="card-description">Historically Black public university with strong STEM programs, especially engineering. Home of the famous Aristocrat of Bands.</p>
+                </div>
+                <div class="card college-card">
+                    <span class="card-icon">📚</span>
+                    <h3 class="card-title">Lipscomb University</h3>
+                    <p class="card-description">Private Christian university in Green Hills area. Known for pharmacy, business, and education programs.</p>
+                </div>
+                <div class="card college-card">
+                    <span class="card-icon">💼</span>
+                    <h3 class="card-title">Nashville State Community College</h3>
+                    <p class="card-description">Affordable community college with multiple campuses offering associate degrees and workforce training.</p>
+                </div>
+                <div class="card college-card">
+                    <span class="card-icon">⚖️</span>
+                    <h3 class="card-title">Fisk University</h3>
+                    <p class="card-description">Historic HBCU known for the Fisk Jubilee Singers. Strong liberal arts programs with rich African American heritage.</p>
+                </div>
+                <div class="card college-card">
+                    <span class="card-icon">🎨</span>
+                    <h3 class="card-title">Watkins College of Art</h3>
+                    <p class="card-description">Specialized college focused on visual arts, design, and film. Now part of Belmont University.</p>
+                </div>
+                <div class="card college-card">
+                    <span class="card-icon">✝️</span>
+                    <h3 class="card-title">Trevecca Nazarene University</h3>
+                    <p class="card-description">Private Christian university with strong online programs and adult degree completion options.</p>
+                </div>
+                <div class="card college-card">
+                    <span class="card-icon">🏫</span>
+                    <h3 class="card-title">Middle Tennessee State University</h3>
+                    <p class="card-description">Large public university in Murfreesboro (30 miles southeast). Known for recording industry and aerospace programs.</p>
+                </div>
+                <div class="card college-card">
+                    <span class="card-icon">👨‍⚕️</span>
+                    <h3 class="card-title">Meharry Medical College</h3>
+                    <p class="card-description">Historically Black medical school training physicians, dentists, and researchers. One of the nation's oldest and largest HBCUs focused on healthcare.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parks & Recreation -->
+        <section id="parks">
+            <div class="section-header">
+                <h2 class="section-title">Parks & Recreation <span class="emoji-decoration">🌳</span></h2>
+            </div>
+            <div class="card-grid">
+                <div class="card park-card">
+                    <span class="card-icon">🏞️</span>
+                    <h3 class="card-title">Centennial Park</h3>
+                    <p class="card-description">Historic urban park with the full-scale Parthenon replica, walking trails, lake, dog park, and seasonal events. Perfect for picnics!</p>
+                </div>
+                <div class="card park-card">
+                    <span class="card-icon">🌲</span>
+                    <h3 class="card-title">Percy Warner Park</h3>
+                    <p class="card-description">Vast wilderness park with hiking and mountain biking trails, scenic overlooks, and nature center. Part of Warner Parks system.</p>
+                </div>
+                <div class="card park-card">
+                    <span class="card-icon">🦌</span>
+                    <h3 class="card-title">Edwin Warner Park</h3>
+                    <p class="card-description">Nature trails, equestrian center, and cross-country courses. Great for wildlife viewing and peaceful walks.</p>
+                </div>
+                <div class="card park-card">
+                    <span class="card-icon">🏃</span>
+                    <h3 class="card-title">Shelby Bottoms Greenway</h3>
+                    <p class="card-description">960-acre park with paved greenways perfect for biking, running, and kayaking. Nature center and river access.</p>
+                </div>
+                <div class="card park-card">
+                    <span class="card-icon">🌅</span>
+                    <h3 class="card-title">Radnor Lake State Park</h3>
+                    <p class="card-description">State natural area with pristine lake, hiking trails, and abundant wildlife. No swimming or boating - pure nature preservation.</p>
+                </div>
+                <div class="card park-card">
+                    <span class="card-icon">🎡</span>
+                    <h3 class="card-title">Bicentennial Capitol Mall</h3>
+                    <p class="card-description">Urban park celebrating Tennessee's history with fountains, monuments, farmers market, and views of the State Capitol.</p>
+                </div>
+                <div class="card park-card">
+                    <span class="card-icon">🌊</span>
+                    <h3 class="card-title">Percy Priest Lake</h3>
+                    <p class="card-description">Large reservoir perfect for boating, fishing, swimming, and water sports. Multiple marinas and access points.</p>
+                </div>
+                <div class="card park-card">
+                    <span class="card-icon">🎾</span>
+                    <h3 class="card-title">Fannie Mae Dees Park</h3>
+                    <p class="card-description">Known as "Dragon Park" for its colorful mosaic dragon sculpture. Great playground for kids in Hillsboro Village.</p>
+                </div>
+                <div class="card park-card">
+                    <span class="card-icon">🌺</span>
+                    <h3 class="card-title">Cheekwood Estate & Gardens</h3>
+                    <p class="card-description">55-acre botanical garden and art museum. Seasonal displays, sculpture trail, and historic mansion tours.</p>
+                </div>
+                <div class="card park-card">
+                    <span class="card-icon">⚡</span>
+                    <h3 class="card-title">Two Rivers Park</h3>
+                    <p class="card-description">Large park with wave pool, golf course, skate park, and greenway access. Great for families and outdoor recreation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shopping -->
+        <section id="shopping">
+            <div class="section-header">
+                <h2 class="section-title">Shopping <span class="emoji-decoration">🛍️</span></h2>
+            </div>
+            <div class="card-grid">
+                <div class="card shopping-card">
+                    <span class="card-icon">🏬</span>
+                    <h3 class="card-title">The Mall at Green Hills</h3>
+                    <p class="card-description">Upscale shopping with Nordstrom, Apple Store, and luxury brands. One of Nashville's premier shopping destinations.</p>
+                </div>
+                <div class="card shopping-card">
+                    <span class="card-icon">🎸</span>
+                    <h3 class="card-title">Opry Mills</h3>
+                    <p class="card-description">Large outlet mall with 200+ stores near the Grand Ole Opry. Features Bass Pro Shops, Dave & Buster's, and entertainment.</p>
+                </div>
+                <div class="card shopping-card">
+                    <span class="card-icon">🌟</span>
+                    <h3 class="card-title">The Gulch</h3>
+                    <p class="card-description">Trendy neighborhood with boutique shopping, designer stores, and unique local shops mixed with dining and nightlife.</p>
+                </div>
+                <div class="card shopping-card">
+                    <span class="card-icon">🎨</span>
+                    <h3 class="card-title">12 South</h3>
+                    <p class="card-description">Hip shopping district with vintage boutiques, home decor shops, and local designers. Perfect for unique finds.</p>
+                </div>
+                <div class="card shopping-card">
+                    <span class="card-icon">🛒</span>
+                    <h3 class="card-title">CoolSprings Galleria</h3>
+                    <p class="card-description">Large mall in Brentwood/Franklin area with major department stores and national chains. Dillard's, Macy's, and more.</p>
+                </div>
+                <div class="card shopping-card">
+                    <span class="card-icon">🎭</span>
+                    <h3 class="card-title">East Nashville</h3>
+                    <p class="card-description">Eclectic shopping area with vintage stores, record shops, antique markets, and quirky boutiques along Five Points.</p>
+                </div>
+                <div class="card shopping-card">
+                    <span class="card-icon">🏛️</span>
+                    <h3 class="card-title">Downtown Nashville</h3>
+                    <p class="card-description">Tourist shopping on Broadway with boot stores, Western wear, souvenir shops, and music memorabilia.</p>
+                </div>
+                <div class="card shopping-card">
+                    <span class="card-icon">🌿</span>
+                    <h3 class="card-title">The Nations</h3>
+                    <p class="card-description">Up-and-coming area with boutique shops, local makers, and unique retail mixed with breweries and restaurants.</p>
+                </div>
+                <div class="card shopping-card">
+                    <span class="card-icon">🎪</span>
+                    <h3 class="card-title">Nashville Flea Market</h3>
+                    <p class="card-description">Monthly outdoor market at the fairgrounds with antiques, crafts, vintage items, and local vendors.</p>
+                </div>
+                <div class="card shopping-card">
+                    <span class="card-icon">🏘️</span>
+                    <h3 class="card-title">Hillsboro Village</h3>
+                    <p class="card-description">College town shopping with bookstores, vintage clothing, gift shops, and local boutiques near Vanderbilt.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nearby Cities -->
+        <section id="nearby">
+            <div class="section-header">
+                <h2 class="section-title">Nearby Cities & States <span class="emoji-decoration">🗺️</span></h2>
+                <p style="text-align: center; color: #666; margin-top: -20px;">Within 5 hours of Nashville</p>
+            </div>
+            <div class="card-grid">
+                <div class="card city-card">
+                    <span class="card-icon">🎸</span>
+                    <h3 class="card-title">Memphis, TN (3 hours)</h3>
+                    <p class="card-description">Home of Beale Street, Graceland, and incredible BBQ. Blues music capital with rich civil rights history.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🏙️</span>
+                    <h3 class="card-title">Atlanta, GA (4 hours)</h3>
+                    <p class="card-description">Major metropolitan city with world-class dining, shopping, and cultural attractions. International hub.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🌉</span>
+                    <h3 class="card-title">Chattanooga, TN (2 hours)</h3>
+                    <p class="card-description">Scenic city with Rock City, Lookout Mountain, Tennessee Aquarium, and revitalized riverfront.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🥃</span>
+                    <h3 class="card-title">Louisville, KY (3 hours)</h3>
+                    <p class="card-description">Home of the Kentucky Derby, bourbon trail, and historic Churchill Downs.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🏞️</span>
+                    <h3 class="card-title">Great Smoky Mountains, TN (4 hours)</h3>
+                    <p class="card-description">America's most visited national park with hiking, wildlife, Gatlinburg, and Pigeon Forge nearby.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🏛️</span>
+                    <h3 class="card-title">Knoxville, TN (3 hours)</h3>
+                    <p class="card-description">Home of University of Tennessee, gateway to the Smokies, and vibrant downtown Market Square.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🎰</span>
+                    <h3 class="card-title">St. Louis, MO (5 hours)</h3>
+                    <p class="card-description">Gateway Arch, excellent BBQ, City Museum, and Forest Park. Historic riverfront city.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🌊</span>
+                    <h3 class="card-title">Gulf Shores, AL (5 hours)</h3>
+                    <p class="card-description">Beautiful white sand beaches on the Gulf Coast. Perfect for weekend beach getaways.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🏛️</span>
+                    <h3 class="card-title">Birmingham, AL (3 hours)</h3>
+                    <p class="card-description">Civil Rights Institute, Vulcan Park, and emerging food scene. Rich Southern history.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🎪</span>
+                    <h3 class="card-title">Asheville, NC (4.5 hours)</h3>
+                    <p class="card-description">Biltmore Estate, Blue Ridge Parkway, craft breweries, and mountain arts culture.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🎭</span>
+                    <h3 class="card-title">Lexington, KY (3 hours)</h3>
+                    <p class="card-description">Horse capital of the world with beautiful horse farms, bourbon, and University of Kentucky.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🏢</span>
+                    <h3 class="card-title">Cincinnati, OH (4.5 hours)</h3>
+                    <p class="card-description">Over-the-Rhine district, Kings Island, Cincinnati Zoo, and excellent chili culture.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🌳</span>
+                    <h3 class="card-title">Huntsville, AL (2 hours)</h3>
+                    <p class="card-description">U.S. Space & Rocket Center, tech hub, and Monte Sano State Park.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🎨</span>
+                    <h3 class="card-title">Franklin, TN (30 minutes)</h3>
+                    <p class="card-description">Charming historic downtown, Civil War sites, and boutique shopping. Nashville's favorite suburb.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🏰</span>
+                    <h3 class="card-title">Mammoth Cave, KY (2 hours)</h3>
+                    <p class="card-description">World's longest known cave system. Underground tours and above-ground hiking.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🎯</span>
+                    <h3 class="card-title">Bowling Green, KY (1 hour)</h3>
+                    <p class="card-description">National Corvette Museum, Western Kentucky University, and Lost River Cave.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🌄</span>
+                    <h3 class="card-title">Lynchburg, TN (1.5 hours)</h3>
+                    <p class="card-description">Home of Jack Daniel's Distillery. Tour the famous whiskey-making process.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🏔️</span>
+                    <h3 class="card-title">Cherokee National Forest, TN (3.5 hours)</h3>
+                    <p class="card-description">Wilderness hiking, waterfalls, Ocoee River whitewater rafting, and mountain scenery.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🎵</span>
+                    <h3 class="card-title">Muscle Shoals, AL (2.5 hours)</h3>
+                    <p class="card-description">Historic music recording studios where legends like Aretha Franklin and The Rolling Stones recorded.</p>
+                </div>
+                <div class="card city-card">
+                    <span class="card-icon">🌲</span>
+                    <h3 class="card-title">Land Between the Lakes, KY/TN (2 hours)</h3>
+                    <p class="card-description">National recreation area with camping, hiking, boating, and wildlife viewing between two lakes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transportation -->
+        <section id="transit">
+            <div class="section-header">
+                <h2 class="section-title">Transportation <span class="emoji-decoration">🚌</span></h2>
+            </div>
+            <div class="transit-grid">
+                <div class="transit-item">
+                    <h3 class="transit-title"><span>🚌</span> WeGo Public Transit</h3>
+                    <p class="card-description">Nashville's bus system with local and regional routes. Download the Transit app for real-time schedules. Fares: $2 local, $4.50 regional. Day passes available.</p>
+                </div>
+                <div class="transit-item">
+                    <h3 class="transit-title"><span>🚗</span> Rideshare (Uber/Lyft)</h3>
+                    <p class="card-description">Most popular way to get around Nashville. Available throughout the city with surge pricing during peak hours and weekends. Essential for nightlife.</p>
+                </div>
+                <div class="transit-item">
+                    <h3 class="transit-title"><span>🛴</span> Scooters & Bikes</h3>
+                    <p class="card-description">Electric scooters (Bird, Lime, Spin) and bike shares available downtown and popular neighborhoods. Great for short trips. Download apps to rent.</p>
+                </div>
+                <div class="transit-item">
+                    <h3 class="transit-title"><span>✈️</span> Nashville International Airport (BNA)</h3>
+                    <p class="card-description">Modern airport 8 miles east of downtown. Rideshare pickup on lower level, rental cars available. Connected to downtown via I-40.</p>
+                </div>
+                <div class="transit-item">
+                    <h3 class="transit-title"><span>🚕</span> Taxis</h3>
+                    <p class="card-description">Traditional taxis available but less common than rideshare. Can be hailed downtown or called. Meter-based fares.</p>
+                </div>
+                <div class="transit-item">
+                    <h3 class="transit-title"><span>🅿️</span> Parking</h3>
+                    <p class="card-description">Metered street parking and garages downtown. ParkIt app for digital payment. Expect to pay $10-25 for event parking. Free parking in most neighborhoods.</p>
+                </div>
+                <div class="transit-item">
+                    <h3 class="transit-title"><span>🎵</span> Music City Circuit</h3>
+                    <p class="card-description">Free downtown circulator bus connecting attractions, hotels, and entertainment districts. Runs every 10-15 minutes during peak times.</p>
+                </div>
+                <div class="transit-item">
+                    <h3 class="transit-title"><span>🚲</span> Nashville B-cycle</h3>
+                    <p class="card-description">Bike share with 30+ stations around downtown and Midtown. Monthly and annual memberships available. Perfect for exploring neighborhoods.</p>
+                </div>
+                <div class="transit-item">
+                    <h3 class="transit-title"><span>🚶</span> Walking</h3>
+                    <p class="card-description">Downtown, The Gulch, 12 South, and East Nashville are very walkable. Broadway is pedestrian-heavy. Use caution crossing busy streets.</p>
+                </div>
+                <div class="transit-item">
+                    <h3 class="transit-title"><span>🚐</span> Nashville Fun Trolley</h3>
+                    <p class="card-description">Hop-on hop-off trolley tour connecting major tourist attractions. Great for first-time visitors to get oriented around the city.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Maps -->
+        <section id="maps">
+            <div class="section-header">
+                <h2 class="section-title">Navigate Nashville <span class="emoji-decoration">📍</span></h2>
+                <p style="text-align: center; color: #666; margin-top: -20px;">Use this map to explore the city and find your way around!</p>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    class="map-frame"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207431.0084410165!2d-86.9514438!3d36.1622767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864ec3213eb903d%3A0x7d3fb9d0a1e9daa0!2sNashville%2C%20TN!5e0!3m2!1sen!2sus!4v1642095245842!5m2!1sen!2sus"
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            Made with <span class="footer-heart">❤️</span> by cousin Dan
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 120;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll for cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
